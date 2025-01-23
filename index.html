@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <title>Chúc Tết</title>
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      #tieude1 {
+        text-align: center;
+      }
+      #tieude2 {
+        text-align: center;
+      }
+      #nhaplieu {
+        border-radius: 10px;
+        font-size: 22px;
+        margin: 0 auto;
+        margin-top: 20%;
+        height: 40px;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.3;
+        background-image: url(https://png.pngtree.com/background/20220721/original/pngtree-spring-red-bronzing-auspicious-cloud-texture-background-paper-picture-image_1695999.jpg);
+        background-size: cover;
+      }
+      #wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      button#btn-open {
+        background-color: #42aaf5;
+        color: #080808;
+        border: none;
+        outline: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        margin: 0 auto;
+        margin-top: 10px;
+        height: 40px;
+      }
+      #modal-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        height: 100vh;
+        /* display: flex;
+            justify-content: center; */
+        /* default  */
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease-in-out;
+      }
+      #modal-container.show {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .modal {
+        position: relative;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 500px;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        transition: all 0.25s ease-in-out;
+      }
+      #modal-container.show {
+        opacity: 1;
+        pointer-events: all;
+      }
+      #modal-container.show .modal {
+        top: 100px;
+      }
+      .modal-header {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e9ecef;
+      }
+      .modal-header h3 {
+        margin: 0;
+      }
+      .modal-header button#btn-close {
+        border: none;
+        background: none;
+        outline: none;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .modal-body {
+        padding: 0px 20px 20px;
+        width: fit-content;
+      }
+      #luuy {
+        margin: 30px auto;
+        border: 2px solid #42f5bc;
+        width: fit-content;
+        border-radius: 10px;
+        font-size: 15px;
+        background-color: #42f5bc;
+      }
+      #abc {
+        padding: 5px;
+        margin: 0 auto;
+        border: 0 solid black;
+        border-radius: 15px;
+        background-color: #f5f542;
+        width: fit-content;
+      }
+      #phatnhac {
+        padding: 0;
+        margin: 0 auto;
+        border: 0 solid black;
+        border-radius: 15px;
+        width: 300px;
+      }
+    </style>
+    <div id="abc">
+      <p id="tieude1"><b>CHÚC MỪNG NĂM MỚI</b></p>
+      <p id="tieude2"><b>AN KHANG THỊNH VƯỢNG</b></p>
+    </div>
+    <div id="luuy">
+      <p>
+        Bấm "play" để nghe nhạc và Nhập mã của bạn với định dạng ngày tháng năm
+        sinh vào ô bên dưới nhé, VD: 01012005, 26042005
+      </p>
+    </div>
+    <div id="phatnhac">
+      <audio id="phatnhac" controls autoplay loop>
+        <source src="nhac.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+    <div id="wrapper">
+      <input type="number" id="nhaplieu" placeholder="Mã số của bạn là" />
+      <button id="btn-open">Bấm vào đi</button>
+      <div id="modal-container">
+        <div class="modal" id="modal-demo">
+          <div class="modal-header">
+            <h3>Modal title</h3>
+            <button id="btn-close"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="modal-body">
+            <p id="loichucc"></p>
+            <script>
+              document
+                .getElementById("nhaplieu")
+                .addEventListener("input", function () {
+                  var pass = this.value;
+                  if (pass == 31072005) {
+                    document.getElementById("loichucc").innerHTML =
+                      "Chúc bạn Ngọc Nhi có 1 năm mới thành công, nhiều niềm vui, thành công, sức khỏe, đẹp gái hơn. Đáng lẽ có cả vòng quay may mắn nữa nhưng do thực lực có hạn nên check MoMo nhé";
+                  } else if (pass == 16052005) {
+                    document.getElementById("loichucc").innerHTML =
+                      "Chúc bạn Thảo Trang có 1 năm mới thành công, nhiều niềm vui, thành công, sức khỏe, đẹp gái hơn. Đáng lẽ có cả vòng quay may mắn nữa nhưng do thực lực có hạn nên check MoMo nhé";
+                  } else if (pass == 27022005) {
+                    document.getElementById("loichucc").innerHTML =
+                      "Chúc bạn Gia Hiển có 1 năm mới thành công, nhiều niềm vui, thành công, sức khỏe, đẹp trai hơn. Đáng lẽ có cả vòng quay may mắn nữa nhưng do thực lực có hạn nên check MoMo nhé";
+                  } else if (pass == 16052005) {
+                    document.getElementById("loichucc").innerHTML =
+                      "Chúc bạn Thảo Trang có 1 năm mới thành công, nhiều niềm vui, thành công, sức khỏe, xinh đẹp hơn. Đáng lẽ có cả vòng quay may mắn nữa nhưng do thực lực có hạn nên check MoMo nhé";
+                  } else if (pass == 08062005) {
+                    document.getElementById("loichucc").innerHTML =
+                      "Chúc bạn Bách Hân có 1 năm mới thành công, nhiều niềm vui, thành công, sức khỏe, xinh đẹp hơn. Đáng lẽ có cả vòng quay may mắn nữa nhưng do thực lực có hạn nên check MoMo nhé";
+                  } else if (pass == 27032007) {
+                    document.getElementById("loichucc").innerHTML =
+                      "Chúc bạn Hạnh Dung có 1 năm mới thành công, nhiều niềm vui, thành công, sức khỏe, xinh đẹp hơn, và năm nay là 1 năm đặc biệt nên ráng thi tốt nhé, có thể sinh nhật bạn mình sẽ ra Thái Bình đó. Đáng lẽ có cả vòng quay may mắn nữa nhưng do thực lực có hạn nên check MoMo nhé";
+                  } else if (pass == 25072003) {
+                    document.getElementById("loichucc").innerHTML =
+                      "Chúc chị Ly / đồng bo có 1 năm mới thành công, nhiều niềm vui, thành công, sức khỏe, xinh đẹp hơn. Đáng lẽ có cả vòng quay may mắn nữa nhưng do thực lực có hạn nên check MoMo nhé";
+                  } else if (pass == 15012005) {
+                    document.getElementById("loichucc").innerHTML =
+                      "Chúc bạn Phương Nghi có 1 năm mới thành công, nhiều niềm vui, thành công, sức khỏe, xinh đẹp hơn. Đáng lẽ có cả vòng quay may mắn nữa nhưng do thực lực có hạn nên check MoMo nhé";
+                  } else if (pass == 10032005) {
+                    document.getElementById("loichucc").innerHTML =
+                      "Chúc bạn Nguyên Phát có 1 năm mới thành công, nhiều niềm vui, thành công, sức khỏe, đẹp trai hơn. Đáng lẽ có cả vòng quay may mắn nữa nhưng do thực lực có hạn nên check MoMo nhé";
+                  } else {
+                    document.getElementById("loichucc").innerHTML =
+                      "Tiếc quá ! mã của bạn nhập có thể chưa đúng hoặc chưa được thêm vào dữ liệu chương trình.";
+                  }
+                });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const open = document.getElementById("btn-open");
+      // console.log(show);
+      const close = document.getElementById("btn-close");
+
+      const modal_container = document.getElementById("modal-container");
+      const modal_demo = document.getElementById("modal-demo");
+
+      open.addEventListener("touchend", () => {
+        modal_container.classList.add("show");
+      });
+      open.addEventListener("click", () => {
+        modal_container.classList.add("show");
+      });
+      close.addEventListener("touchend", () => {
+        modal_container.classList.remove("show");
+      });
+      close.addEventListener("click", () => {
+        modal_container.classList.remove("show");
+      });
+      modal_container.addEventListener("touchend", (e) => {
+        if (!modal_demo.contains(e.target)) {
+          close.click();
+        }
+      });
+    </script>
+  </body>
+</html>
